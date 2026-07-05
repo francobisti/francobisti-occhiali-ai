@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>occhiali.ai — GUSCIO per l'accessibilità</title>
+<style>
+  :root{
+    --ink:#12181C;
+    --deep:#0E1417;
+    --slate:#1E2A30;
+    --slate-2:#2C3E46;
+    --gold:#C6A15B;
+    --gold-light:#E4CD9A;
+    --paper:#F3F1EA;
+    --paper-dim:#DAD6C8;
+    --line:#3A4A50;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    background:var(--deep); color:var(--paper);
+    line-height:1.6;
+  }
+  .sans{ font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+
+  header{
+    padding: 90px 24px 70px;
+    text-align:center;
+    background: radial-gradient(ellipse at 50% -10%, var(--slate-2) 0%, var(--deep) 60%);
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow{
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size:12px; letter-spacing:3px; text-transform:uppercase;
+    color:var(--gold-light); opacity:.85; margin-bottom:18px;
+  }
+  h1.wordmark{
+    font-size: clamp(38px, 8vw, 64px);
+    color:var(--paper); letter-spacing:1px; margin-bottom: 14px;
+    font-weight:400;
+  }
+  h1.wordmark .dot{ color: var(--gold); }
+  .tagline{
+    font-size: clamp(16px, 2.4vw, 20px);
+    color:var(--gold-light); font-style:italic; max-width:560px;
+    margin: 0 auto 30px;
+  }
+  .eye-motif{
+    width: 64px; height: 64px; margin: 0 auto 26px;
+    opacity:.9;
+  }
+
+  main{ max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  section{ padding: 64px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  h2{
+    font-size: 26px; color:var(--paper); margin-bottom: 20px;
+    font-weight:400; position:relative; padding-left:18px;
+  }
+  h2::before{
+    content:''; position:absolute; left:0; top:6px; bottom:6px;
+    width:3px; background:var(--gold);
+  }
+  p{ font-size: 17px; color:#D8D4C7; margin-bottom: 16px; max-width: 640px; }
+  p.lead{ font-size:19px; color:var(--paper); }
+
+  .grid-two{
+    display:grid; grid-template-columns: 1fr; gap:18px; margin-top: 24px;
+  }
+  @media(min-width:560px){ .grid-two{ grid-template-columns: 1fr 1fr; } }
+  .card{
+    background: var(--slate); border:1px solid var(--line); border-radius:10px;
+    padding: 22px;
+  }
+  .card .label{
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size:11px; letter-spacing:1.8px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px; font-weight:700;
+  }
+  .card p{ font-size:15px; margin-bottom:0; color:#CFCBBE; }
+
+  .stat-row{ display:flex; gap:26px; flex-wrap:wrap; margin: 26px 0; }
+  .stat{ min-width:130px; }
+  .stat .num{ font-size:32px; color:var(--gold-light); font-weight:400; }
+  .stat .desc{
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size:12.5px; color:#B8B4A6; margin-top:4px;
+  }
+
+  .flow{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    margin: 26px 0; font-family: -apple-system, 'Segoe UI', sans-serif;
+  }
+  .flow .step{
+    background:var(--slate); border:1px solid var(--gold); border-radius:8px;
+    padding: 12px 16px; font-size:13.5px; color:var(--paper); font-weight:600;
+  }
+  .flow .arrow{ color:var(--gold); font-size:18px; }
+
+  blockquote{
+    border-left: 3px solid var(--gold);
+    padding: 6px 0 6px 22px; margin: 30px 0;
+    font-style:italic; font-size:19px; color:var(--gold-light);
+  }
+
+  .cta{
+    text-align:center; padding: 70px 24px 90px;
+    background: radial-gradient(ellipse at 50% 110%, var(--slate-2) 0%, var(--deep) 65%);
+  }
+  .cta h2{ padding-left:0; }
+  .cta h2::before{ display:none; }
+  .cta p{ max-width: 480px; margin: 0 auto 28px; text-align:center; color:#D8D4C7; }
+  .cta-btn{
+    display:inline-block;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-weight:700; font-size:15px; letter-spacing:.5px;
+    color: var(--deep); background: var(--gold-light);
+    padding: 14px 34px; border-radius: 30px; text-decoration:none;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .cta-btn:hover{ background:var(--gold); transform: translateY(-1px); }
+
+  footer{
+    text-align:center; padding: 30px 24px 50px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size:12.5px; color:#8A8578;
+  }
+  footer .brand{ color:var(--gold-light); font-style:italic; margin-bottom:6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="eye-motif" viewBox="0 0 64 64" fill="none">
+    <path d="M4 32 C 14 12, 50 12, 60 32 C 50 52, 14 52, 4 32 Z" stroke="#C6A15B" stroke-width="1.4"/>
+    <circle cx="32" cy="32" r="9" stroke="#E4CD9A" stroke-width="1.4"/>
+    <circle cx="32" cy="32" r="2.6" fill="#E4CD9A"/>
+  </svg>
+  <p class="eyebrow sans">Guscio · un concept per l'accessibilità</p>
+  <h1 class="wordmark">occhiali<span class="dot">.</span>ai</h1>
+  <p class="tagline">Un'infrastruttura di contenuto vocale, pensata per incontrare i dispositivi assistivi che già esistono — non per sostituirli.</p>
+</header>
+
+<main>
+
+  <section id="problema">
+    <h2>Il problema</h2>
+    <p class="lead">Un tocco su un tag NFC risolve un problema — se puoi vedere dove appoggiare il telefono.</p>
+    <p>GUSCIO nasce come sistema "soglia zero": un tag NFC, un tocco, e l'informazione arriva a voce, in più lingue, senza app né registrazione. Funziona benissimo per un turista, un anziano, chi ha solo un attimo. Non funziona da solo per chi non può vedere il tag.</p>
+    <p>Nel frattempo, un intero settore di dispositivi assistivi — occhiali smart, bastoni intelligenti — sta maturando rapidamente. Oggi questi due mondi non si parlano.</p>
+  </section>
+
+  <section id="idea">
+    <h2>L'idea</h2>
+    <p>GUSCIO non deve costruire un dispositivo. Deve diventare lo strato di contenuto che i dispositivi già esistenti possono leggere, quando la persona si trova vicino a un tag già installato.</p>
+    <div class="flow">
+      <div class="step">Tag GUSCIO<br>sul territorio</div>
+      <span class="arrow">→</span>
+      <div class="step">Telefono<br>o occhiale</div>
+      <span class="arrow">→</span>
+      <div class="step">Voce,<br>subito</div>
+    </div>
+    <blockquote>GUSCIO come strato di contenuto. Il dispositivo assistivo come strato di accesso.</blockquote>
+  </section>
+
+  <section id="perche-ora">
+    <h2>Perché è il momento giusto</h2>
+    <div class="stat-row">
+      <div class="stat"><div class="num sans">101M</div><div class="desc">persone con disabilità nella UE</div></div>
+      <div class="stat"><div class="num sans">giu 2025</div><div class="desc">piena applicazione dell'EAA</div></div>
+      <div class="stat"><div class="num sans">43M</div><div class="desc">non vedenti stimati nel mondo</div></div>
+    </div>
+    <div class="grid-two">
+      <div class="card">
+        <p class="label">iSee — iVision Tech</p>
+        <p>Occhiali smart italiani, rilevamento ostacoli fino a 4 metri. Azienda quotata, certificazione ISO 13485 per dispositivi medici.</p>
+      </div>
+      <div class="card">
+        <p class="label">Ray-Ban Meta</p>
+        <p>Meta AI descrive l'ambiente, legge testi, connette a volontari Be My Eyes. Toolkit aperto a sviluppatori terzi.</p>
+      </div>
+    </div>
+    <p style="margin-top:22px;">Il quadro normativo (European Accessibility Act, D.Lgs. 82/2022) rende l'accessibilità un requisito concreto per moltissime strutture, non più un'opzione.</p>
+  </section>
+
+  <section id="ultimo-metro">
+    <h2>Il problema dell'ultimo metro</h2>
+    <p>Un non vedente non può vedere il tag. La soluzione più semplice non è nuova tecnologia: è un piccolo modulo acustico, posizionato vicino al tag, normalmente spento.</p>
+    <p>Il personale della struttura lo attiva su richiesta, quando arriva un cliente non vedente — lo stesso principio dei semafori acustici, applicato a un singolo punto informativo. Zero disturbo per gli altri, zero costo di gestione quotidiana.</p>
+  </section>
+
+</main>
+
+<div class="cta">
+  <h2>Un'idea, non ancora un progetto</h2>
+  <p>GUSCIO ha già la rete di contenuti e i punti sul territorio. Chi lavora su dispositivi assistivi ha il pezzo che manca. Se lavori in questo campo e l'idea ti dice qualcosa, scriviamone insieme.</p>
+  <a class="cta-btn" href="mailto:info@guscio.ai?subject=occhiali.ai%20—%20GUSCIO%20per%20l'accessibilit%C3%A0">Scrivimi</a>
+</div>
+
+<footer>
+  <p class="brand">la sicurezza è un atto d'amore</p>
+  <p>GUSCIO — tecnologia NFC a soglia zero</p>
+</footer>
+
+</body>
+</html>
